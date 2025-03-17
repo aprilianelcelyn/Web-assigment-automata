@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Validator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: #1a237e;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            width: 80%;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #fff;
+            color: #1a237e;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #3949ab;
+            color: #fff;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Scientific Number Identification</h2>
+        <p>Aprilia Nelcelyn Tabukang (231011060001)</p>
+        <input type="text" id="inputNumber" placeholder="Input Number...">
+        <button onclick="validateNumber()">Cek</button>
+        <p id="message"></p>
+    </div>
+    <script>
+        function validateNumber() {
+            let input = document.getElementById("inputNumber").value.trim();
+            let scientificRegex = /^[+-]?\d+(\.\d+)?(e[+-]?\d+)?$/i;
+
+            if (scientificRegex.test(input)) {
+                document.getElementById("message").textContent = "Yes, it is a number";
+                document.getElementById("message").style.color = "#4CAF50";
+            } else {
+                document.getElementById("message").textContent = "No, it is not a number";
+                document.getElementById("message").style.color = "#FF5733";
+            }
+        }
+    </script>
+</body>
+</html>
